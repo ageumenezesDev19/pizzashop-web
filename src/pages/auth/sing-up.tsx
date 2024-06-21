@@ -36,8 +36,6 @@ export function SingUp() {
           onClick: () => navigate('/sing-in'),
         },
       })
-
-      console.log(data)
     } catch {
       toast.error('Erro ao cadastrar restaurante.')
     }
