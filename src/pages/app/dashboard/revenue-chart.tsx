@@ -21,7 +21,7 @@ const data = [
   { date: '11/12', revenue: 800 },
   { date: '12/12', revenue: 500 },
   { date: '13/12', revenue: 1100 },
-  { date: '14/12', revenue: 20 },
+  { date: '14/12', revenue: 200 },
   { date: '15/12', revenue: 2000 },
   { date: '16/12', revenue: 740 },
 ]
