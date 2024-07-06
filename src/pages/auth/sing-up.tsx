@@ -26,7 +26,8 @@ export function SingUp() {
     formState: { isSubmitting },
   } = useForm<SingInForm>()
 
-  async function handleSingUp(data: SingInForm) {
+  // data: SingInForm
+  async function handleSingUp() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
