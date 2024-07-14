@@ -4,7 +4,6 @@ import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts'
 import colors from 'tailwindcss/colors'
 
 import { getPopularProducts } from '@/api/get-popular-products'
-// import colors from 'tailwindcss/colors'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const COLORS = [
