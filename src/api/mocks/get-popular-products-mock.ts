@@ -8,10 +8,10 @@ export const getPopularProductsMock = http.get<
   getPopularProductsResponse
 >('/metrics/popular-products', () => {
   return HttpResponse.json([
-    { product: 'Pizza 01', amount: 5 },
-    { product: 'Pizza 02', amount: 3 },
-    { product: 'Pizza 03', amount: 4 },
-    { product: 'Pizza 04', amount: 1 },
-    { product: 'Pizza 05', amount: 6 },
+    { product: 'Pizza 01', amount: 50 },
+    { product: 'Pizza 02', amount: 30 },
+    { product: 'Pizza 03', amount: 40 },
+    { product: 'Pizza 04', amount: 10 },
+    { product: 'Pizza 05', amount: 60 },
   ])
 })
