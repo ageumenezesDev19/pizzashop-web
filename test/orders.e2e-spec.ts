@@ -8,8 +8,6 @@ test('list orders', async ({ page }) => {
   ).toBeVisible()
 
   expect(page.getByRole('cell', { name: 'Customer 10' })).toBeVisible()
-
-  await page.waitForTimeout(1000) // fix a bug
 })
 
 test('paginate orders', async ({ page }) => {
@@ -57,8 +55,6 @@ test('filter by order id', async ({ page }) => {
   await page.getByRole('button', { name: 'Filtrar Resultados' }).click()
 
   expect(page.getByRole('cell', { name: 'order-11' })).toBeVisible()
-
-  await page.waitForTimeout(1000) // fix a bug
 })
 
 test('filter by customer name', async ({ page }) => {
@@ -68,6 +64,19 @@ test('filter by customer name', async ({ page }) => {
   await page.getByRole('button', { name: 'Filtrar Resultados' }).click()
 
   expect(page.getByRole('cell', { name: 'Customer 3' })).toBeVisible()
+})
+
+test('filter by status', async ({ page }) => {
+  await page.goto('/orders', { waitUntil: 'networkidle' })
+
+  await page.getByRole('combobox').click()
+  await page.getByLabel('Pendente').getByText('Pendente').click()
+
+  await page.getByRole('button', { name: 'Filtrar Resultados' }).click()
+
+  const tableRows = await page.getByRole('cell', { name: 'Pendente' }).all()
+
+  expect(tableRows).toHaveLength(10)
 
   await page.waitForTimeout(1000) // fix a bug
 })
