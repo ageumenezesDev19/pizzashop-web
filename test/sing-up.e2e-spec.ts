@@ -13,8 +13,6 @@ test('sign up successfully', async ({ page }) => {
   const toast = page.getByText('Restaurante cadastrado com sucesso!')
 
   expect(toast).toBeVisible()
-
-  await page.waitForTimeout(1000) // fix a bug
 })
 
 test('sign up with error', async ({ page }) => {
@@ -30,8 +28,6 @@ test('sign up with error', async ({ page }) => {
   const toast = page.getByText('Erro ao cadastrar restaurante.')
 
   expect(toast).toBeVisible()
-
-  await page.waitForTimeout(1000) // fix a bug
 })
 
 test('navigate to new login page', async ({ page }) => {
