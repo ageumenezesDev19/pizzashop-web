@@ -67,7 +67,14 @@ export default function RevenueChart() {
         {chartData ? (
           <ResponsiveContainer width="100%" height={240}>
             <LineChart data={chartData} style={{ fontSize: 12 }}>
-              <XAxis dataKey="date" tickLine={false} axisLine={false} dy={16} />
+              <XAxis
+                dataKey="date"
+                tickLine={false}
+                axisLine={false}
+                dy={16}
+                // Example of using default parameters
+                tickFormatter={(date = '') => date}
+              />
 
               <YAxis
                 stroke="#888"
@@ -89,6 +96,8 @@ export default function RevenueChart() {
                 strokeWidth={2}
                 dataKey="receipt"
                 stroke={colors.violet['500']}
+                // Example of using default parameters
+                dot={false}
               />
             </LineChart>
           </ResponsiveContainer>
