@@ -32,21 +32,23 @@ export const getOrdersMock = http.get<never, never, GetOrdersResponse>(
       ? Number(searchParams.get('pageIndex'))
       : 0
 
-    const customerName = searchParams.get('customerName') // Corrigido
+    const customerName =
+      searchParams.get('customerName')?.toLowerCase().trim() || ''
     const orderId = searchParams.get('orderId')
     const status = searchParams.get('status')
 
     let filteredOrders = orders
 
     if (customerName) {
-      filteredOrders = filteredOrders.filter((order) =>
-        order.customerName.includes(customerName),
-      )
+      filteredOrders = filteredOrders.filter((order) => {
+        const orderCustomerName = order.customerName.toLowerCase().trim()
+        return orderCustomerName === customerName
+      })
     }
 
     if (orderId) {
-      filteredOrders = filteredOrders.filter(
-        (order) => order.orderId.includes(orderId), // Corrigido
+      filteredOrders = filteredOrders.filter((order) =>
+        order.orderId.includes(orderId),
       )
     }
 

@@ -60,3 +60,14 @@ test('filter by order id', async ({ page }) => {
 
   await page.waitForTimeout(1000) // fix a bug
 })
+
+test('filter by customer name', async ({ page }) => {
+  await page.goto('/orders', { waitUntil: 'networkidle' })
+
+  await page.getByPlaceholder('Nome do cliente').fill('Customer 3')
+  await page.getByRole('button', { name: 'Filtrar Resultados' }).click()
+
+  expect(page.getByRole('cell', { name: 'Customer 3' })).toBeVisible()
+
+  await page.waitForTimeout(1000) // fix a bug
+})
